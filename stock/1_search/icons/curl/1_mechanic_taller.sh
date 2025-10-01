@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Check if FREEPIK_API_KEY is set
+: "${FREEPIK_API_KEY:=}"
+if [[ -z "${FREEPIK_API_KEY}" ]]; then
+  echo "[ERROR] FREEPIK_API_KEY is not set in the environment" >&2
+  exit 1
+fi
+
+# API usage example
+API_URL="https://api.freepik.com/v1/icons"
+
+curl --silent --show-error --get "$API_URL" \
+  -H "x-freepik-api-key: $FREEPIK_API_KEY" \
+  --data-urlencode "term=a mechanic taller" \
+  --data-urlencode "slug=repair" \
+  --data-urlencode "page=1" \
+  --data-urlencode "per_page=5" \
+  --data-urlencode "order=relevance" \
+  --data-urlencode "thumbnail_size=256" \
+  --data-urlencode "filters[color]=green" \
+  --data-urlencode "filters[color]=orange" \
+  --data-urlencode "filters[shape]=outline" \
+  --data-urlencode "filters[shape]=fill"
+
+
