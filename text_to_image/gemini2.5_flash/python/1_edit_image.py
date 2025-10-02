@@ -21,8 +21,8 @@ if response.status_code == 200:
 
 payload = {
     "prompt": "put a the hat in the head of the woman",
+    "reference_images": [IMAGE_REFERENCE_B64, "https://shop.rydercup.com/cdn/shop/files/RYDRMH0120_C_2048x.jpg?v=1752179506"],
     #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
-    "reference_images": [IMAGE_REFERENCE_B64, "https://shop.rydercup.com/cdn/shop/files/RYDRMH0120_C_2048x.jpg?v=1752179506"]
 }
 
 start_time = time.time()
@@ -64,3 +64,5 @@ if response.status_code == 200:
             print(f"Image successfully downloaded as {file_name}")
         else:
             print(f"Could not download the image. Status code: {img_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

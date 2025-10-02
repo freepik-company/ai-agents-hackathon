@@ -37,7 +37,6 @@ payload = {
 }
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
-print(response.json())
 
 if response.status_code == 200:
     # Active wait until the task is completed
@@ -75,3 +74,5 @@ if response.status_code == 200:
             print(f"Image successfully downloaded as {file_name}")
         else:
             print(f"Could not download the image. Status code: {img_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

@@ -14,7 +14,6 @@ headers = {"x-freepik-api-key": os.getenv("FREEPIK_API_KEY"), "Content-Type": "a
 
 payload = {
     "prompt": "a car in the forest",
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook
     "aspect_ratio": "square_1_1", # Possible values: square_1_1, classic_4_3, traditional_3_4, widescreen_16_9, social_story_9_16, standard_3_2, portrait_2_3, horizontal_2_1, vertical_1_2, social_post_4_5
     "styling": {
         "effects": {
@@ -34,6 +33,7 @@ payload = {
         ]
     },
     "seed": 2147483648
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook
 }
 
 start_time = time.time()

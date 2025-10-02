@@ -14,14 +14,13 @@ headers = {"x-freepik-api-key": os.getenv("FREEPIK_API_KEY"), "Content-Type": "a
 
 payload = {
     "prompt": "a car in the forest",
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook
     "aspect_ratio": "square_1_1", # Possible values: square_1_1, classic_4_3, traditional_3_4, widescreen_16_9, social_story_9_16, standard_3_2, portrait_2_3, horizontal_2_1, vertical_1_2, social_post_4_5
     "seed": 2147483648
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook
 }
 
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
-print(response.json())
 
 if response.status_code == 200:
     # Active wait until the task is completed
@@ -59,3 +58,5 @@ if response.status_code == 200:
             print(f"Image successfully downloaded as {file_name}")
         else:
             print(f"Could not download the image. Status code: {img_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")
