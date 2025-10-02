@@ -2,43 +2,33 @@ import requests
 from dotenv import load_dotenv
 import os
 import time
+import base64
 
 # Load FREEPIK_API_KEY as environment variable from .env file
 load_dotenv() 
 
-API_URL = "https://api.freepik.com/v1/ai/text-to-image/flux-dev"
+API_URL = "https://api.freepik.com/v1/ai/image-upscaler-precision"
 timeout = 300 # 5 minutes
 generation_ok = True
 
 headers = {"x-freepik-api-key": os.getenv("FREEPIK_API_KEY"), "Content-Type": "application/json"}
 
-payload = {
-    "prompt": "a car in the forest",
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook
-    "aspect_ratio": "square_1_1", # Possible values: square_1_1, classic_4_3, traditional_3_4, widescreen_16_9, social_story_9_16, standard_3_2, portrait_2_3, horizontal_2_1, vertical_1_2, social_post_4_5
-    "styling": {
-        "effects": {
-            "color": "softhue", # Possible values: softhue, b&w, goldglow, vibrant, coldneon 
-            "framing": "portrait", # Possible values: portrait, lowangle, midshot, wideshot, tiltshot, aerial
-            "lightning": "iridescent" # Possible values: iridescent, dramatic, goldenhour, longexposure, indorlight, flash, neon
-        },
-        "colors": [
-            {
-                "color": "#F58727",
-                "weight": 0.5
-            },
-            {
-                "color": "#2727F5",
-                "weight": 0.5
-            }
-        ]
-    },
-    "seed": 2147483648
-}
+IMAGE_URL = "https://img.b2bpic.net/premium-photo/portrait-smiling-senior-woman-blue-vintage-convertible_220770-28364.jpg"
 
+response = requests.get(IMAGE_URL)
+if response.status_code == 200:
+    print("Structure reference image downloaded successfully")
+    IMAGE_B64 = base64.b64encode(response.content).decode("utf-8")
+
+payload = {
+    "image": IMAGE_B64, # Image to upscale. Only supports base64
+    "sharpen": 50, # Sharpen the image. Possible values: [0,100]
+    "smart_grain": 7, # Adding grain to the image. Possible values: [0,100]
+    "ultra_detail": 30, # Possible values: [0,100]
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
+}
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
-
 if response.status_code == 200:
     # Active wait until the task is completed
 
@@ -50,7 +40,7 @@ if response.status_code == 200:
     while status != "COMPLETED":
         print(f"Waiting for the task to complete... (current status: {status})")
         time.sleep(2)  # Wait 2 seconds before checking again
-        status_url = f"{API_URL}/{task_id}"
+        status_url = f"https://api.freepik.com/v1/ai/image-upscaler-precision/{task_id}"
         response = requests.get(status_url, headers={"x-freepik-api-key": os.getenv("FREEPIK_API_KEY")})
         if response.status_code == 200:
             status = response.json()["data"]["status"]
@@ -64,16 +54,17 @@ if response.status_code == 200:
             
     if generation_ok:
         print("COMPLETED")
-        # Download the image ---------------------------------------------------------------
-        IMG_URL = response.json()["data"]["generated"][0]
+        print(response.json())
+        # Download the video ---------------------------------------------------------------
+        IMAGE_URL = response.json()["data"]["generated"][0]
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        file_name = os.path.join(current_dir, "generated_image.jpg")
-        img_response = requests.get(IMG_URL)
-        if img_response.status_code == 200:
+        file_name = os.path.join(current_dir, "upscaled_image.jpg")
+        image_response = requests.get(IMAGE_URL)
+        if image_response.status_code == 200:
             with open(file_name, "wb") as f:
-                f.write(img_response.content)
+                f.write(image_response.content)
             print(f"Image successfully downloaded as {file_name}")
         else:
-            print(f"Could not download the image. Status code: {img_response.status_code}")
+            print(f"Could not download the image. Status code: {image_response.status_code}")
 else:
     print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

@@ -59,22 +59,25 @@ DUDAS:
 kling funciona igual las versiones:
  - 1.6 pro - admite frame inicial y final
     - check: "https://api.freepik.com/v1/ai/image-to-video/kling/{task-id}"
- - 1.6 std - admite frame inicial y final
+ - 1.6 std - admite frame inicial. Los params igual que 1.6-std pero sin image_tail
     - check: "https://api.freepik.com/v1/ai/image-to-video/kling/{task-id}"
- - 2 - admite frame inicial. Los params igual que 1.6 pero sin image_tail
+ - 2 - admite frame inicial. Los params igual que 1.6-std pero sin image_tail
     - check: "https://api.freepik.com/v1/ai/image-to-video/kling-v2/{task-id}"
- - 2.1 std - admite frame inicial. Los params igual que 1.6 pero sin image_tail
+ - 2.1 std - admite frame inicial. Los params igual que 1.6-std pero sin image_tail
     - check:  "https://api.freepik.com/v1/ai/image-to-video/kling-v2-1/{task-id}"
- - 2.1 pro - admite frame inicial y final. Los params igual que 1.6
+ - 2.1 pro - admite frame inicial y final. Los params igual que 1.6-std
     - check :  "https://api.freepik.com/v1/ai/image-to-video/kling-v2-1/{task-id}"
- - 2.1 master - admite frame inicial. Los params igual que 1.6 pero sin image_tail
+ - 2.1 master - admite frame inicial. Los params igual que 1.6-std pero sin image_tail
     - check: "https://api.freepik.com/v1/ai/image-to-video/kling-v2-1-master/{task-id}"
- - 2.5 pro - admite frame inicial. Los params igual que 1.6 pero sin image_tail.
+ - 2.5 pro - admite frame inicial. Los params igual que 1.6-std pero sin image_tail.
     - Check: "https://api.freepik.com/v1/ai/image-to-video/kling-v2-5-pro/{task-id}"
 - 1.6 elements: Igual que los otros pero con varias imagenes para pasarle.
 
-- minimax: Tienen dos tareas, text_to_video o image_to_video. Tienen los mismos params los dos.
-- seedance: Todos iguales
-- Wan: Todos iguales
-- PixVerse: Todos iguales
+- minimax: Tienen dos tareas, text_to_video o image_to_video. Tienen los mismos params los dos. frame inicial y final.
+- seedance: Todos iguales, frame inicial y cambia aspect ratio.
+- Wan: Todos iguales, frame inicial y cambia aspect ratio.
+- PixVerse: Todos meten estilo
+    - PixVerse-v5: Frame inicial.
+    - PixVerse-v5-transition: Frame inicial y final.
 
+MAGNIFIC PRECISION: No devuelven el image_url despues de hacer el upscale.
