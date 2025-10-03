@@ -50,7 +50,8 @@ if response.status_code == 200:
                 print(f"Could not download the icon. Status code: {icon_response.status_code}")
         else:
             print("Icon URL not found in the response.")
-# If the request was not successful, print the error
+    else:
+        print(f"Error while downloading the icon. Status code: {response.status_code}, message: {response.json()['message']}")
 else:
-    print(response.status_code, response.text)
+    print(f"Error while searching the icon. Status code: {response.status_code}, message: {response.json()['message']}")
 

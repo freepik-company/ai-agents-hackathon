@@ -59,7 +59,7 @@ if response.status_code == 200:
             
     if generation_ok:
         print("COMPLETED")
-        # Download the video ---------------------------------------------------------------
+        # Download the image ---------------------------------------------------------------
         IMAGE_URL = response.json()["data"]["generated"][0]
         current_dir = os.path.dirname(os.path.abspath(__file__))
         file_name = os.path.join(current_dir, "upscaled_image.jpg")

@@ -58,7 +58,6 @@ if response.status_code == 200:
         else:
             print("Image URL not found in the response.")
     else:
-        print(response.status_code, response.text)
-# If the request was not successful, print the error
+        print(f"Error while downloading the image. Status code: {response.status_code}, message: {response.json()['message']}")
 else:
-    print(response.status_code, response.text)
+    print(f"Error while searching the image. Status code: {response.status_code}, message: {response.json()['message']}")
