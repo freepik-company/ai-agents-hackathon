@@ -15,12 +15,12 @@ headers = {"x-freepik-api-key": os.getenv("FREEPIK_API_KEY"), "Content-Type": "a
 START_FRAME_URL = "https://img.b2bpic.net/premium-photo/portrait-smiling-senior-woman-blue-vintage-convertible_220770-28364.jpg"
 
 payload = {
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
     "image": START_FRAME_URL, # Start frame. Also supports base64
     "prompt": "An old woman is driving a car and suddenly the camera moves to another car in which a black woman is driving",
     "negative_prompt": "ugly, cartoon, b&w, earth, ugly",
     "duration": "5", # Possible values: 5, 10
     "cfg_scale": 0.5,
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
 }
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
@@ -60,3 +60,5 @@ if response.status_code == 200:
             print(f"Video successfully downloaded as {file_name}")
         else:
             print(f"Could not download the video. Status code: {video_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

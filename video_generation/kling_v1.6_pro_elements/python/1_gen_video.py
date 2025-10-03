@@ -17,12 +17,12 @@ IMAGE_2 = "https://img.hogar.mapfre.es/wp-content/uploads/2018/09/hamburguesa-se
 IMAGE_3 = "https://images.squarespace-cdn.com/content/v1/54822a56e4b0b30bd821480c/51fe71a3-cb12-4ac2-882f-45955401dd53/Golden+Retrievers+dans+pet+care.jpeg?format=2500w"
 
 payload = {
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
-    "images": [IMAGE_1, IMAGE_2, IMAGE_3], # Start frame. Also supports base64
+    "images": [IMAGE_1, IMAGE_2, IMAGE_3], # Elements to use in the generation. Also supports base64
     "prompt": "An old woman is driving a car eating a hamburger with a dog in the back seat",
     "negative_prompt": "ugly, cartoon, b&w, earth, ugly",
     "aspect_ratio": "widescreen_16_9", # Possible values: widescreen_16_9, social_story_9_16, square_1_1
     "duration": "5",
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
 }
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
@@ -63,4 +63,4 @@ if response.status_code == 200:
         else:
             print(f"Could not download the video. Status code: {video_response.status_code}")
 else:
-    print(response.status_code, response.text)
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

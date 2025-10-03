@@ -13,10 +13,10 @@ generation_ok = True
 headers = {"x-freepik-api-key": os.getenv("FREEPIK_API_KEY"), "Content-Type": "application/json"}
 
 payload = {
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
     "prompt": "An old woman is driving a car and suddenly the camera moves to another car in which a black woman is driving",
     "prompt_optimizer": True, # the model will automatically optimize the incoming prompt
     "duration": "6", # Possible values: 6, 10
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
 }
 
 start_time = time.time()
@@ -57,3 +57,5 @@ if response.status_code == 200:
             print(f"Video successfully downloaded as {file_name}")
         else:
             print(f"Could not download the video. Status code: {video_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

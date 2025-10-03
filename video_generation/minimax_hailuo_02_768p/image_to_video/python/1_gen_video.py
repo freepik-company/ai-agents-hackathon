@@ -23,12 +23,12 @@ if response.status_code == 200:
 
 
 payload = {
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
     "first_frame_image": START_FRAME_URL, # Start frame. Also supports base64
     "last_frame_image": END_FRAME_B64, # End frame. Also supports base64
     "prompt": "An old woman is driving a car and suddenly the camera moves to another car in which a black woman is driving",
     "prompt_optimizer": True, # the model will automatically optimize the incoming prompt
     "duration": "6", # Possible values: 6, 10
+    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
 }
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
@@ -68,3 +68,5 @@ if response.status_code == 200:
             print(f"Video successfully downloaded as {file_name}")
         else:
             print(f"Could not download the video. Status code: {video_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")

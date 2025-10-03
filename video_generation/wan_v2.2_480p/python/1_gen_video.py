@@ -61,3 +61,5 @@ if response.status_code == 200:
             print(f"Video successfully downloaded as {file_name}")
         else:
             print(f"Could not download the video. Status code: {video_response.status_code}")
+else:
+    print(f"Error while generating the image. Status code: {response.status_code}, message: {response.json()['message']}")
