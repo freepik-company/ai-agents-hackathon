@@ -43,7 +43,7 @@ if response.status_code == 200:
     while status != "COMPLETED":
         print(f"Waiting for the task to complete... (current status: {status})")
         time.sleep(2)  # Wait 2 seconds before checking again
-        status_url = f"https://api.freepik.com/v1/ai/image-to-video/kling-v2-1-pro/{task_id}"
+        status_url = f"https://api.freepik.com/v1/ai/image-to-video/kling-v2-1/{task_id}"
         response = requests.get(status_url, headers={"x-freepik-api-key": os.getenv("FREEPIK_API_KEY")})
         if response.status_code == 200:
             status = response.json()["data"]["status"]
