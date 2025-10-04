@@ -28,7 +28,6 @@ payload = {
     "negative_prompt": "ugly, cartoon, b&w, earth, ugly",
     "duration": "5", # Possible values: 5, 10
     "cfg_scale": 0.5,
-    #"webhook_url": "https://www.example.com/webhook", # only if you want send the status of the task to a webhook,
 }
 start_time = time.time()
 response = requests.post(API_URL, json=payload, headers=headers)
