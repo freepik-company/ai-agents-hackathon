@@ -234,3 +234,7 @@ Tools available in the MCP:
 - search_icons                  
 - get_icon_detail_by_id
 - download_icon_by_id
+
+## Extra
+
+To give you some ideas we've prepared a workflow using python to generate a complete advertising campaing from NOTHING! You can see it [here](workflows/1_campaing.py)
