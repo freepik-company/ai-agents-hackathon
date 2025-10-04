@@ -138,13 +138,9 @@ __First and last frame conditioning__
 | Tool | Important differences | Links|
 |------|------------------------|------|
 |Kling v1.6 pro | Negative prompt to improve quality. | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-pro/post-kling-pro) - [Python example](video_generation/kling_v1.6_pro/python/1_gen_video.py)|
-
 |Kling v2.1 pro | Negative prompt to improve quality. Better quality than 2 | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-v2.1-pro/overview) - [Python example](video_generation/kling_v2.1_pro/python/1_gen_video.py)|
-
 |Pixverse v5 transition | Can generate different resolutions. Can apply some predefinied styles. Negative prompt to improve quality.| [Docs](https://docs.freepik.com/api-reference/image-to-video/pixverse-transition/post-pixverse-v5-transition) - [Python example](video_generation/pixverse_v5_transition/python/1_gen_video.py)|
-
 |Minimax Hailuo 02 768p| It has automatic prompt optimizer. Resolution 768p. |[Docs](https://docs.freepik.com/api-reference/image-to-video/minimax-hailuo-02-768p/post-minimax-hailuo-02-768p) - [Python example](video_generation/minimax_hailuo_02_768p/image_to_video/python/1_gen_video.py)|
-
 |Minimax Hailuo 02 1080p| It has automatic prompt optimizer. Resolution 1080p.|[Docs](https://docs.freepik.com/api-reference/image-to-video/minimax-hailuo-02-1080p/post-minimax-hailuo-02-1080p) - [Python example](video_generation/minimax_hailuo_02_1080p/image_to_video/python/1_gen_video.py)|
 
 
@@ -153,20 +149,13 @@ __Only first frame conditioning__
 | Tool | Important differences | Links|
 |------|------------------------|------|
 |Kling v1.6 std | Negative prompt to improve quality. | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-std/post-kling-std) - [Python example](video_generation/kling_v1.6_std/python/1_gen_video.py)|
-
 |Kling v2 | Negative prompt to improve quality. Better quality than 1.6 | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-v2/post-kling-v2) - [Python example](video_generation/kling_v2/python/1_gen_video.py)|
-
 |Kling v2.1 master | Negative prompt to improve quality. Better quality than 2 | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-v2.1-master/post-kling-v2-1-master) - [Python example](video_generation/kling_v2.1_master/python/1_gen_video.py)|
-
 |Kling v2.1 std | Negative prompt to improve quality. Better quality than 2 | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-v2.1-std/overview) - [Python example](video_generation/kling_v2.1_std/python/1_gen_video.py)|
 |Kling v2.5 pro | Negative prompt to improve quality. Better quality than 2 | [Docs](https://docs.freepik.com/api-reference/image-to-video/kling-v2.1-pro/overview) - [Python example](video_generation/kling_v2.5_pro/python/1_gen_video.py)|
-
 |Pixverse v5 | Can generate different resolutions. Can apply some predefinied styles. Negative prompt to improve quality.| [Docs](https://docs.freepik.com/api-reference/image-to-video/pixverse/overview) - [Python example](video_generation/pixverse_v5/python/1_gen_video.py)|
-
 |Seedance lite | Can control de aspect ratio. Can fix the camera during the video. There are 3 different models for each resolution 480p, 720p and 1080p. | 480p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-lite-480p/post-seedance-lite-480p) - [Python example](video_generation/seedance_lite_480p/python/1_gen_video.py) 720p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-lite-720p/post-seedance-lite-720p) - [Python example](video_generation/seedance_lite_720p/python/1_gen_video.py) 1080p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-lite-1080p/post-seedance-lite-1080p) - [Python example](video_generation/seedance_lite_1080p/python/1_gen_video.py)|
-
 |Seedance pro | Can control de aspect ratio. Can fix the camera during the video. There are 3 different models for each resolution 480p, 720p and 1080p. Best quality than lite.| 480p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-pro-480p/post-seedance-pro-480p) - [Python example](video_generation/seedance_pro_480p/python/1_gen_video.py) 720p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-pro-720p/post-seedance-pro-720p) - [Python example](video_generation/seedance_pro_720p/python/1_gen_video.py) 1080p: [Docs](https://docs.freepik.com/api-reference/image-to-video/seedance-pro-1080p/post-seedance-pro-1080p) - [Python example](video_generation/seedance_pro_1080p/python/1_gen_video.py)|
-
 |Wan v2.2 | Can control de aspect ratio. There are 3 different models for each resolution 480p, 580p and 720p. | 480p: [Docs](https://docs.freepik.com/api-reference/image-to-video/wan-v2-2-480p/post-wan-v2-2-480p) - [Python example](video_generation/wan_v2.2_480p/python/1_gen_video.py) 580p: [Docs](https://docs.freepik.com/api-reference/image-to-video/wan-v2-2-580p/post-wan-v2-2-580p) - [Python example](video_generation/wan_v2.2_580p/python/1_gen_video.py) 720p: [Docs](https://docs.freepik.com/api-reference/image-to-video/wan-v2-2-720p/post-wan-v2-2-720p) - [Python example](video_generation/wan_v2.2_720p/python/1_gen_video.py)|
 
 __Many images with objects to conditioning__
